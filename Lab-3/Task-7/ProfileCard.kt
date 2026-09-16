@@ -1,9 +1,28 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
+import android.content.res.Configuration
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.lab23.ui.theme.CSC402Lab3Theme
+import androidx.compose.ui.unit.dp
 
 data class Student(
     val name: String,
@@ -12,30 +31,6 @@ data class Student(
     val email: String,
     val city: String
 )
-
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.draw.clip
 
 @Composable
 fun StudentCard(
@@ -130,8 +125,6 @@ fun StudentCard(
     }
 }
 
-import android.content.res.Configuration
-
 @Preview(name = "Light", showBackground = true)
 @Preview(
     name = "Dark",
@@ -147,10 +140,10 @@ private fun StudentCardPreview() {
         email = "2240002170@iau.edu.sa",
         city = "Qatif, Eastern Province"
     )
-    CSC402Lab3Theme {
-        StudentCard(
-            student = sampleStudent,
-            modifier = Modifier.padding(16.dp)
-        )
-    }
+    // CSC402Lab3Theme {
+    //     StudentCard(
+    //         student = sampleStudent,
+    //         modifier = Modifier.padding(16.dp)
+    //     )
+    // }
 }

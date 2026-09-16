@@ -1,9 +1,30 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.lab23.ui.theme.CSC402Lab3Theme
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 data class Student(
     val name: String,
@@ -12,30 +33,6 @@ data class Student(
     val email: String,
     val city: String
 )
-
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.draw.clip
 
 @Composable
 fun StudentCard(
@@ -72,7 +69,8 @@ fun StudentCard(
                         Text(
                             text = initials,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            style = MaterialTheme.typography.titleLarge
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 20.sp
                         )
                     }
 
@@ -98,18 +96,20 @@ fun StudentCard(
                 ) {
                     Text(
                         text = student.name,
-                        style = MaterialTheme.typography.titleLarge,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
                         text = student.program,
-                        style = MaterialTheme.typography.bodyMedium,
+                        fontSize = 14.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 Text(
                     text = student.gpa,
-                    style = MaterialTheme.typography.titleLarge,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
                 )
             }
@@ -118,26 +118,19 @@ fun StudentCard(
 
             Text(
                 text = student.email,
-                style = MaterialTheme.typography.bodyMedium,
+                fontSize = 14.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Text(
                 text = student.city,
-                style = MaterialTheme.typography.bodyMedium,
+                fontSize = 14.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
 }
 
-import android.content.res.Configuration
-
-@Preview(name = "Light", showBackground = true)
-@Preview(
-    name = "Dark",
-    showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
+@Preview(showBackground = true)
 @Composable
 private fun StudentCardPreview() {
     val sampleStudent = Student(
@@ -147,10 +140,10 @@ private fun StudentCardPreview() {
         email = "2240002170@iau.edu.sa",
         city = "Qatif, Eastern Province"
     )
-    CSC402Lab3Theme {
-        StudentCard(
-            student = sampleStudent,
-            modifier = Modifier.padding(16.dp)
-        )
-    }
+    // CSC402Lab3Theme {
+    //     StudentCard(
+    //         student = sampleStudent,
+    //         modifier = Modifier.padding(16.dp)
+    //     )
+    // }
 }
