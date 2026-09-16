@@ -1,4 +1,4 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues

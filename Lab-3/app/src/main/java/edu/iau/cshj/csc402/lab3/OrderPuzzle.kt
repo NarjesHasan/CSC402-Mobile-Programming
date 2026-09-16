@@ -1,4 +1,4 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.lab23.ui.theme.CSC402Lab3Theme
+import edu.iau.cshj.csc402.lab3.ui.theme.CSC402Lab3Theme
 
 @Composable
 fun ChainA(modifier: Modifier = Modifier) {

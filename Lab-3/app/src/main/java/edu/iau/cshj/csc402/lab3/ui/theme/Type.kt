@@ -1,4 +1,4 @@
-package com.example.lab23.ui.theme
+package edu.iau.cshj.csc402.lab3.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
