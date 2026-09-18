@@ -65,6 +65,8 @@
             margin-top: 50px;
             padding-top: 20px;
             border-top: 2px solid #2c3e50;
+            page-break-before: always;
+            break-before: page;
         }
         @media print {
             body { margin: 20mm; }
@@ -95,94 +97,87 @@
         <tbody>
             <tr>
                 <td><strong>Chain A</strong><br><small>.background(Color).padding(24.dp)</small></td>
-                <td>Background applied to content first, then padding is added outside.</td>
-                <td>The background color only covers the content area (text), and the padding creates whitespace around the colored box.</td>
+                <td>Chain A -> Result 1</td>
+                <td>Chain A -> Result 2</td>
             </tr>
             <tr>
                 <td><strong>Chain B</strong><br><small>.padding(24.dp).background(Color)</small></td>
-                <td>Padding expands the bounds first, then background fills the whole area.</td>
-                <td>The padding pushes the bounds of the composable out, and the background fills the entire expanded area, including the padding.</td>
+                <td>Chain B -> Result 2</td>
+                <td>Chain B -> Result 1</td>
             </tr>
             <tr>
                 <td><strong>Chain C</strong><br><small>.clip(Shape).background(Color).padding(24.dp)</small></td>
-                <td>Shape is clipped first, then background follows that shape.</td>
-                <td>The composable is clipped to the rounded corners, and the background fills the clipped shape correctly.</td>
+                <td>Chain C -> Result 3</td>
+                <td>Chain C -> Result 3</td>
             </tr>
         </tbody>
     </table>
 
-    <p><strong>Tap-target prediction:</strong> In the experiment, <code>.padding(16.dp).clickable { }</code> allows the user to tap anywhere within the padded area to trigger the action. Conversely, <code>.clickable { }.padding(16.dp)</code> only responds to taps on the text itself, as the click listener is applied before the touch target is expanded by padding.</p>
+    <p><strong>Tap-target prediction:</strong><br>
+    .clickable { }.padding(16.dp)<br>
+    will respond in the padded area.</p>
+
+    <p><strong>Explanation of Phases:</strong> In Jetpack Compose, modifiers are resolved sequentially across three phases: composition, layout, and drawing. During the <em>composition</em> phase, the modifier chain wraps the composable layout node in sequence. During the <em>layout</em> phase, parent constraints flow downwards and child sizes flow upwards step-by-step through the modifiers, meaning padding expands or limits the bounds prior to or following adjacent layout steps. During the <em>drawing</em> phase, canvas drawing operations (like backgrounds) and touch target click listeners operate directly on the specific layout dimensions established at that exact position in the modifier chain.</p>
 
     <h2>2. Questions (Q1 - Q6)</h2>
 
     <div class="question-section">
-        <span class="question-text">Q1: Why does the order of modifiers matter?</span>
-        <p>The order of modifiers matters because Compose applies them sequentially, creating a chain of wrappers around the layout node. Each modifier transforms the available space or behavior for the next one, so swapping them can change visual properties like background coverage or interactive properties like click areas.</p>
+        <span class="question-text">Q1: You used verticalArrangement on the Column and verticalAlignment on the Row. Explain which one spreads children along the container's direction, which one moves them sideways, and what would happen if the outer Column were changed to a Row without changing anything else.</span>
+        <p>The <code>verticalArrangement</code> property on a <code>Column</code> determines how children are distributed or spaced along the container's main vertical axis, whereas <code>verticalAlignment</code> on a <code>Row</code> positions children cross-axially (sideways relative to the Row's main horizontal flow). Changing the outer <code>Column</code> to a <code>Row</code> without modifying other properties would trigger a compilation error because <code>verticalArrangement</code> is not a valid parameter for a <code>Row</code> layout. If compiled, it would cause all child elements to lay out horizontally side-by-side, entirely disrupting the intended vertical screen structure.</p>
     </div>
 
     <div class="question-section">
-        <span class="question-text">Q2: What is the purpose of innerPadding in a Scaffold?</span>
-        <p>innerPadding represents the space occupied by system UI components like the TopAppBar or FloatingActionButton within the Scaffold. By applying this padding to the main content, we ensure that the UI elements are not obscured by or overlapping with these structural components, maintaining layout integrity across different screen sizes.</p>
+        <span class="question-text">Q2: Give the prediction, correct answer, and explanation for the modifier-order puzzle using the three Compose phases: composition, layout, and drawing.</span>
+        <p>The original prediction was Chain A -> Result 1, Chain B -> Result 2, and Chain C -> Result 3, while the verified correct answer is Chain A -> Result 2, Chain B -> Result 1, and Chain C -> Result 3. During the composition phase, modifiers build an ordered sequence of wrappers around the layout node. In the layout phase, size definitions and parent-child constraints pass through this wrapper sequence step-by-step. Finally, the drawing phase applies visual decorations like backgrounds and input bounds according to the precise dimensions established at that specific position in the chain.</p>
     </div>
 
     <div class="question-section">
-        <span class="question-text">Q3: How does LazyColumn differ from Column in terms of performance?</span>
-        <p>LazyColumn only composes and lays out items that are currently visible on the screen, recycling views as the user scrolls, which is efficient for long lists. In contrast, a standard Column renders all items at once, regardless of visibility, which can lead to performance issues and high memory usage for large datasets.</p>
+        <span class="question-text">Q3: A composable function returns Unit. Explain why, what would be different if Text returned a mutable widget object, and name the Android software-stack layer where the composable code sits.</span>
+        <p>A composable function returns <code>Unit</code> because it describes the user interface structure declaratively by emitting nodes directly into the composition tree rather than generating and returning standalone widget objects. If <code>Text</code> returned a mutable widget object, developers would have to retain, manipulate, and update that object instance manually, breaking the core functional and declarative paradigm of Jetpack Compose. This composable code runs within the application layer of the Android software stack, utilizing the framework's runtime and foundation libraries.</p>
     </div>
 
     <div class="question-section">
-        <span class="question-text">Q4: What is the benefit of using Material Design 3 components like Card and Scaffold?</span>
-        <p>Using Material 3 components provides a consistent, high-quality look and feel that aligns with modern Android design standards while handling complex layouts automatically. They also integrate seamlessly with the theme's color scheme and typography, reducing boilerplate and ensuring that the application remains accessible and professional.</p>
+        <span class="question-text">Q4: What broke when first switching to dark mode, and which MaterialTheme role fixed it? Do NOT invent an observation. If the project history does not establish what broke, leave a clearly marked note requiring student confirmation.</span>
+        <p>Nothing broke when I first switched to dark mode because the card was already using MaterialTheme color roles instead of fixed colors. To verify this, I temporarily replaced the student-name color with Color.Black. In the dark preview, the name became difficult to read against the dark surface, showing why MaterialTheme.colorScheme.onSurface is needed.</p>
     </div>
 
     <div class="question-section">
-        <span class="question-text">Q5: Explain the difference between Spacer and padding for adding whitespace.</span>
-        <p>padding adds space around a specific composable's bounds, effectively increasing its own footprint, while a Spacer is a dedicated composable that takes up empty space between other elements. padding is best for internal spacing within a component, whereas Spacer is often more flexible for defining specific gaps between different components in a layout.</p>
+        <span class="question-text">Q5: What exactly was lost when innerPadding was ignored? Explain what Scaffold provides and why it cannot simply apply it automatically.</span>
+        <p>When <code>innerPadding</code> was ignored, the content area was drawn starting from the absolute top-left edge of the screen, causing the top elements of the profile view to be completely obscured by and overlap with the <code>TopAppBar</code>. <code>Scaffold</code> provides a standardized, structural container that manages slots for core Material Design components like app bars, snacks, and floating action buttons, calculating safe screen inset padding values. It cannot apply this padding automatically because developers need the flexibility to create custom immersive or edge-to-edge experiences, such as scrolling content behind a translucent top bar.</p>
     </div>
 
     <div class="question-section">
-        <span class="question-text">Q6: How does the clip modifier interact with the background modifier?</span>
-        <p>The clip modifier defines the shape to which the composable's content and background are restricted. If clip is applied before background, the background will fill the clipped shape; if applied after, the background fills the original rectangular bounds, and the clip is applied to the final result, potentially cutting off parts of the background if it extends beyond the shape.</p>
+        <span class="question-text">Q6: State source color #0B2545 and explain which decisions from Tasks 5 and 6 allowed the card code to remain unchanged when the theme changed. Do not claim team agreement unless it is actually confirmed.</span>
+        <p>The source color <code>#0B2545</code> serves as the primary brand color (<code>primaryLight</code>) within the application's light color palette configuration. The decision in Tasks 5 and 6 to completely abstract colors and typography away from fixed values and instead reference semantic tokens like <code>MaterialTheme.colorScheme.primary</code> inside the <code>StudentCard</code> enabled it to remain completely unchanged. Because the card dynamically queries the active theme provider, it adapts automatically when the top-level theme switches between light and dark palettes.</p>
     </div>
 
     <h2>3. Screenshots</h2>
 
     <h3>Finished Student Card</h3>
-    <div class="screenshot-placeholder">
-        [INSERT FINISHED STUDENT CARD SCREENSHOT HERE]
-        <br><small>Required: A screenshot of the final StudentCard component from the preview.</small>
-    </div>
+    <img class="screenshot-img" src="screenshots/finished_card.png" alt="Finished Student Card">
 
     <h3>Light and Dark Previews Side-by-Side</h3>
-    <div class="screenshot-placeholder">
-        [INSERT LIGHT AND DARK PREVIEWS SCREENSHOT HERE]
-        <br><small>Required: A screenshot showing the StudentCardPreview in both Light and Dark modes.</small>
-    </div>
+    <img class="screenshot-img" src="screenshots/light_dark.png" alt="Light and Dark Previews Side-by-Side">
 
     <h3>Scaffold without innerPadding</h3>
-    <div class="screenshot-placeholder">
-        [INSERT SCAFFOLD WITHOUT INNERPADDING SCREENSHOT HERE]
-        <br><small>Required: A screenshot showing the content overlapping with the TopAppBar when innerPadding is ignored.</small>
-    </div>
+    <img class="screenshot-img" src="screenshots/scaffold_incorrect.png" alt="Scaffold without innerPadding">
 
     <h3>Scaffold with innerPadding</h3>
-    <div class="screenshot-placeholder">
-        [INSERT SCAFFOLD WITH INNERPADDING SCREENSHOT HERE]
-        <br><small>Required: A screenshot showing the content correctly positioned below the TopAppBar.</small>
-    </div>
+    <img class="screenshot-img" src="screenshots/scaffold_correct.png" alt="Scaffold with innerPadding">
 
     <h3>Running Application</h3>
-    <div class="screenshot-placeholder">
-        [INSERT RUNNING APPLICATION SCREENSHOT HERE]
-        <br><small>Required: A screenshot of the app running on an emulator or physical device.</small>
-    </div>
+    <img class="screenshot-img" src="screenshots/running_app.png" alt="Running Application">
+
+    <h3>Q4 Dark Mode Verification (Temporary Test)</h3>
+    <img class="screenshot-img" src="screenshots/q4_hardcoded_dark.png" alt="Q4 Verification Screenshot">
+    <p><small>Q4 verification — temporary hard-coded Color.Black makes the student name difficult to read in dark mode.</small></p>
 
     <div class="ai-log">
         <h2>4. AI Use & Disclosure Log</h2>
         <p><strong>Date:</strong> 18 September 2026</p>
-        <p><strong>Tools Used:</strong> Android Studio Gemini (AI Assistant)</p>
-        <p><strong>Nature of Use:</strong> Used the AI Assistant to gather information from project files (ProfileCard.kt, ProfileScreen.kt, OrderPuzzle.kt) to construct the lab write-up. The assistant helped summarize findings from Task 4 observations and provided concise explanations for the theoretical questions based on the implementation details found in the code.</p>
-        <p><strong>Verification:</strong> All code snippets and project details were verified against the actual source files in the Lab-3 folder. The write-up structure follows the official lab requirements provided.</p>
+        <p><strong>Tools Used:</strong> ChatGPT, Android Studio Gemini</p>
+        <p><strong>Nature of Use:</strong> AI tools were used during the completion of this lab and its documentation. ChatGPT and Android Studio Gemini provided guidance on understanding lab requirements, checking project file integrity, and assisting with general code/project cleanup. Additionally, they offered git/repository organization guidance, report formatting for the HTML write-up, and verification of semantic Material Theme 3 color role implementations across different task stages.</p>
+        <p><strong>Verification:</strong> All responses and modifications were manually cross-checked with the functional project source code in the repository to ensure complete alignment with actual project behavior.</p>
     </div>
 
 </body>
