@@ -117,6 +117,10 @@
     .clickable { }.padding(16.dp)<br>
     will respond in the padded area.</p>
 
+    <p><strong>Observed tap-target result:</strong><br>
+    .padding(16.dp).clickable { } responded in the padded area.<br>
+    .clickable { }.padding(16.dp) did not include the outer padded area in the click target.</p>
+
     <p><strong>Explanation of Phases:</strong> In Jetpack Compose, modifiers are resolved sequentially across three phases: composition, layout, and drawing. During the <em>composition</em> phase, the modifier chain wraps the composable layout node in sequence. During the <em>layout</em> phase, parent constraints flow downwards and child sizes flow upwards step-by-step through the modifiers, meaning padding expands or limits the bounds prior to or following adjacent layout steps. During the <em>drawing</em> phase, canvas drawing operations (like backgrounds) and touch target click listeners operate directly on the specific layout dimensions established at that exact position in the modifier chain.</p>
 
     <h2>2. Questions (Q1 - Q6)</h2>

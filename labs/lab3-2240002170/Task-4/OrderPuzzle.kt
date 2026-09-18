@@ -98,8 +98,8 @@ fun OrderPuzzlePreview() {
 }
 
 // Observed Result:
-// Chain A -> Result 1 (Background covers content, then padding is added outside the colored area)
-// Chain B -> Result 2 (Padding is added first, then background fills the entire padded area)
+// Chain A -> Result 2 (Background covers content, then padding is added outside the colored area)
+// Chain B -> Result 1 (Padding is added first, then background fills the entire padded area)
 // Chain C -> Result 3 (Clip is applied to the bounds, then background fills the clipped area)
 //
 // Tap-target observation:
