@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import edu.iau.cshj.csc402.lab3.ui.theme.CSC402Lab3Theme
 import androidx.compose.ui.unit.dp
 
 // Prediction:
@@ -56,40 +57,42 @@ fun ChainC(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun OrderPuzzlePreview() {
-    // Wrap in theme if available
-    Column(modifier = Modifier.padding(16.dp)) {
-        ChainA()
-        Spacer(Modifier.height(16.dp))
-        ChainB()
-        Spacer(Modifier.height(16.dp))
-        ChainC()
+    CSC402Lab3Theme {
+        // Wrap in theme if available
+        Column(modifier = Modifier.padding(16.dp)) {
+            ChainA()
+            Spacer(Modifier.height(16.dp))
+            ChainB()
+            Spacer(Modifier.height(16.dp))
+            ChainC()
 
-        Spacer(Modifier.height(32.dp))
+            Spacer(Modifier.height(32.dp))
 
-        // Tap Target Experiment
-        Text("Tap Target Experiment:")
-        Spacer(Modifier.height(8.dp))
+            // Tap Target Experiment
+            Text("Tap Target Experiment:")
+            Spacer(Modifier.height(8.dp))
 
-        // Option 1
-        Box(
-            modifier = Modifier
-                .background(Color.LightGray)
-                .clickable { }
-                .padding(16.dp)
-        ) {
-            Text("Clickable then Padding")
-        }
+            // Option 1
+            Box(
+                modifier = Modifier
+                    .background(Color.LightGray)
+                    .clickable { }
+                    .padding(16.dp)
+            ) {
+                Text("Clickable then Padding")
+            }
 
-        Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
 
-        // Option 2
-        Box(
-            modifier = Modifier
-                .background(Color.LightGray)
-                .padding(16.dp)
-                .clickable { }
-        ) {
-            Text("Padding then Clickable")
+            // Option 2
+            Box(
+                modifier = Modifier
+                    .background(Color.LightGray)
+                    .padding(16.dp)
+                    .clickable { }
+            ) {
+                Text("Padding then Clickable")
+            }
         }
     }
 }

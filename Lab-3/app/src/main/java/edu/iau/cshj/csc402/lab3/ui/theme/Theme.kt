@@ -35,7 +35,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun Lab23Theme(
+fun CSC402Lab3Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color disabled as per Task 9 instructions for branded identity
     dynamicColor: Boolean = false,
@@ -48,13 +48,4 @@ fun Lab23Theme(
         typography = Typography,
         content = content
     )
-}
-
-@Composable
-fun CSC402Lab3Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = false,
-    content: @Composable () -> Unit
-) {
-    Lab23Theme(darkTheme = darkTheme, dynamicColor = dynamicColor, content = content)
 }

@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
+import edu.iau.cshj.csc402.lab3.ui.theme.CSC402Lab3Theme
 import androidx.compose.ui.unit.dp
 
 data class Student(
@@ -140,10 +141,10 @@ private fun StudentCardPreview() {
         email = "2240007556@iau.edu.sa",
         city = "Dhahran"
     )
-    // CSC402Lab3Theme {
-    //     StudentCard(
-    //         student = sampleStudent,
-    //         modifier = Modifier.padding(16.dp)
-    //     )
-    // }
+    CSC402Lab3Theme {
+        StudentCard(
+            student = sampleStudent,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }

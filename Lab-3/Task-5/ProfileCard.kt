@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import edu.iau.cshj.csc402.lab3.ui.theme.CSC402Lab3Theme
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -140,10 +141,10 @@ private fun StudentCardPreview() {
         email = "2240005334@iau.edu.sa",
         city = "Dammam"
     )
-    // CSC402Lab3Theme {
-    //     StudentCard(
-    //         student = sampleStudent,
-    //         modifier = Modifier.padding(16.dp)
-    //     )
-    // }
+    CSC402Lab3Theme {
+        StudentCard(
+            student = sampleStudent,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }
