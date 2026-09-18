@@ -28,7 +28,7 @@ private fun StudentCardPreview() {
         program = "Computer Science",
         gpa = "4.52",
         email = "2240002170@iau.edu.sa",
-        city = "Qatif, Eastern Province"
+        city = "Qatif"
     )
     // CSC402Lab3Theme {
     //     StudentCard(student = sampleStudent)

@@ -1,4 +1,4 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -25,7 +25,7 @@ fun ProfileScreen(
         program = "Computer Science",
         gpa = "4.52",
         email = "2240002170@iau.edu.sa",
-        city = "Qatif, Eastern Province"
+        city = "Qatif"
     )
 
     Scaffold(

@@ -1,4 +1,4 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -141,11 +141,11 @@ import android.content.res.Configuration
 @Composable
 private fun StudentCardPreview() {
     val sampleStudent = Student(
-        name = "Abdulrahman Al-Mutairi",
+        name = "Narjes Al-Wohaib",
         program = "Computer Science",
         gpa = "4.52",
         email = "2240002170@iau.edu.sa",
-        city = "Qatif, Eastern Province"
+        city = "Qatif"
     )
     CSC402Lab3Theme {
         StudentCard(

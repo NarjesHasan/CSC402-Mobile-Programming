@@ -134,11 +134,11 @@ fun StudentCard(
 @Composable
 private fun StudentCardPreview() {
     val sampleStudent = Student(
-        name = "Abdulrahman Al-Mutairi",
+        name = "Lujain Al-Salem",
         program = "Computer Science",
-        gpa = "4.52",
-        email = "2240002170@iau.edu.sa",
-        city = "Qatif, Eastern Province"
+        gpa = "4.86",
+        email = "2240007556@iau.edu.sa",
+        city = "Dhahran"
     )
     // CSC402Lab3Theme {
     //     StudentCard(

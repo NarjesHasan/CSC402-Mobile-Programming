@@ -136,9 +136,9 @@ private fun StudentCardPreview() {
     val sampleStudent = Student(
         name = "Abdulrahman Al-Mutairi",
         program = "Computer Science",
-        gpa = "4.52",
-        email = "2240002170@iau.edu.sa",
-        city = "Qatif, Eastern Province"
+        gpa = "4.88",
+        email = "2240001005@iau.edu.sa",
+        city = "Riyadh"
     )
     // CSC402Lab3Theme {
     //     StudentCard(

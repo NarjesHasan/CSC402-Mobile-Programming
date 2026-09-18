@@ -1,4 +1,4 @@
-package com.example.lab23
+package edu.iau.cshj.csc402.lab3
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

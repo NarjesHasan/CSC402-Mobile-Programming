@@ -31,10 +31,10 @@ fun ProfileScreen(
 ) {
     val students = listOf(
         Student("Narjes Al-Wohaib", "Computer Science", "4.52", "2240002170@iau.edu.sa", "Qatif"),
-        Student("Abdulrahman Al-Mutairi", "Information Systems", "4.85", "abdulrahman@example.com", "Riyadh"),
-        Student("Sarah Al-Ghamdi", "Software Engineering", "4.70", "sarah@example.com", "Dammam"),
-        Student("Fahad Al-Qahtani", "Computer Science", "4.20", "fahad@example.com", "Jubail"),
-        Student("Lujain Al-Subaie", "Cyber Security", "4.95", "lujain@example.com", "Khobar")
+        Student("Reem Al-Dossary", "Information Systems", "4.31", "2240004223@iau.edu.sa", "Khobar"),
+        Student("Sara Al-Ghamdi", "Software Engineering", "4.70", "2240005334@iau.edu.sa", "Dammam"),
+        Student("Haya Al-Otaibi", "Cyber Security", "4.15", "2240006445@iau.edu.sa", "Jubail"),
+        Student("Lujain Al-Salem", "Computer Science", "4.86", "2240007556@iau.edu.sa", "Dhahran")
     )
 
     Scaffold(
