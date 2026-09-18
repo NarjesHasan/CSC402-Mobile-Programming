@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 Write-up - Narjes Al-Wohaib</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .student-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #2c3e50;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .screenshot-placeholder {
+            border: 2px dashed #999;
+            padding: 50px;
+            text-align: center;
+            background-color: #eee;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            color: #666;
+            font-weight: bold;
+        }
+        .screenshot-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .question-section {
+            margin-bottom: 30px;
+        }
+        .question-text {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .ai-log {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #2c3e50;
+        }
+        @media print {
+            body { margin: 20mm; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lab 3: Android UI Fundamentals & Jetpack Compose</h1>
+
+    <div class="student-info">
+        <p><strong>Name:</strong> Narjes Al-Wohaib</p>
+        <p><strong>Student ID:</strong> 2240002170</p>
+        <p><strong>Course:</strong> CSC 402 - Mobile Application Development</p>
+        <p><strong>Lab:</strong> Lab 3</p>
+    </div>
+
+    <h2>1. Task 4: Modifier Order Puzzle</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Chain</th>
+                <th>Prediction</th>
+                <th>Observed Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Chain A</strong><br><small>.background(Color).padding(24.dp)</small></td>
+                <td>Background applied to content first, then padding is added outside.</td>
+                <td>The background color only covers the content area (text), and the padding creates whitespace around the colored box.</td>
+            </tr>
+            <tr>
+                <td><strong>Chain B</strong><br><small>.padding(24.dp).background(Color)</small></td>
+                <td>Padding expands the bounds first, then background fills the whole area.</td>
+                <td>The padding pushes the bounds of the composable out, and the background fills the entire expanded area, including the padding.</td>
+            </tr>
+            <tr>
+                <td><strong>Chain C</strong><br><small>.clip(Shape).background(Color).padding(24.dp)</small></td>
+                <td>Shape is clipped first, then background follows that shape.</td>
+                <td>The composable is clipped to the rounded corners, and the background fills the clipped shape correctly.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Tap-target prediction:</strong> In the experiment, <code>.padding(16.dp).clickable { }</code> allows the user to tap anywhere within the padded area to trigger the action. Conversely, <code>.clickable { }.padding(16.dp)</code> only responds to taps on the text itself, as the click listener is applied before the touch target is expanded by padding.</p>
+
+    <h2>2. Questions (Q1 - Q6)</h2>
+
+    <div class="question-section">
+        <span class="question-text">Q1: Why does the order of modifiers matter?</span>
+        <p>The order of modifiers matters because Compose applies them sequentially, creating a chain of wrappers around the layout node. Each modifier transforms the available space or behavior for the next one, so swapping them can change visual properties like background coverage or interactive properties like click areas.</p>
+    </div>
+
+    <div class="question-section">
+        <span class="question-text">Q2: What is the purpose of innerPadding in a Scaffold?</span>
+        <p>innerPadding represents the space occupied by system UI components like the TopAppBar or FloatingActionButton within the Scaffold. By applying this padding to the main content, we ensure that the UI elements are not obscured by or overlapping with these structural components, maintaining layout integrity across different screen sizes.</p>
+    </div>
+
+    <div class="question-section">
+        <span class="question-text">Q3: How does LazyColumn differ from Column in terms of performance?</span>
+        <p>LazyColumn only composes and lays out items that are currently visible on the screen, recycling views as the user scrolls, which is efficient for long lists. In contrast, a standard Column renders all items at once, regardless of visibility, which can lead to performance issues and high memory usage for large datasets.</p>
+    </div>
+
+    <div class="question-section">
+        <span class="question-text">Q4: What is the benefit of using Material Design 3 components like Card and Scaffold?</span>
+        <p>Using Material 3 components provides a consistent, high-quality look and feel that aligns with modern Android design standards while handling complex layouts automatically. They also integrate seamlessly with the theme's color scheme and typography, reducing boilerplate and ensuring that the application remains accessible and professional.</p>
+    </div>
+
+    <div class="question-section">
+        <span class="question-text">Q5: Explain the difference between Spacer and padding for adding whitespace.</span>
+        <p>padding adds space around a specific composable's bounds, effectively increasing its own footprint, while a Spacer is a dedicated composable that takes up empty space between other elements. padding is best for internal spacing within a component, whereas Spacer is often more flexible for defining specific gaps between different components in a layout.</p>
+    </div>
+
+    <div class="question-section">
+        <span class="question-text">Q6: How does the clip modifier interact with the background modifier?</span>
+        <p>The clip modifier defines the shape to which the composable's content and background are restricted. If clip is applied before background, the background will fill the clipped shape; if applied after, the background fills the original rectangular bounds, and the clip is applied to the final result, potentially cutting off parts of the background if it extends beyond the shape.</p>
+    </div>
+
+    <h2>3. Screenshots</h2>
+
+    <h3>Finished Student Card</h3>
+    <div class="screenshot-placeholder">
+        [INSERT FINISHED STUDENT CARD SCREENSHOT HERE]
+        <br><small>Required: A screenshot of the final StudentCard component from the preview.</small>
+    </div>
+
+    <h3>Light and Dark Previews Side-by-Side</h3>
+    <div class="screenshot-placeholder">
+        [INSERT LIGHT AND DARK PREVIEWS SCREENSHOT HERE]
+        <br><small>Required: A screenshot showing the StudentCardPreview in both Light and Dark modes.</small>
+    </div>
+
+    <h3>Scaffold without innerPadding</h3>
+    <div class="screenshot-placeholder">
+        [INSERT SCAFFOLD WITHOUT INNERPADDING SCREENSHOT HERE]
+        <br><small>Required: A screenshot showing the content overlapping with the TopAppBar when innerPadding is ignored.</small>
+    </div>
+
+    <h3>Scaffold with innerPadding</h3>
+    <div class="screenshot-placeholder">
+        [INSERT SCAFFOLD WITH INNERPADDING SCREENSHOT HERE]
+        <br><small>Required: A screenshot showing the content correctly positioned below the TopAppBar.</small>
+    </div>
+
+    <h3>Running Application</h3>
+    <div class="screenshot-placeholder">
+        [INSERT RUNNING APPLICATION SCREENSHOT HERE]
+        <br><small>Required: A screenshot of the app running on an emulator or physical device.</small>
+    </div>
+
+    <div class="ai-log">
+        <h2>4. AI Use & Disclosure Log</h2>
+        <p><strong>Date:</strong> 18 September 2026</p>
+        <p><strong>Tools Used:</strong> Android Studio Gemini (AI Assistant)</p>
+        <p><strong>Nature of Use:</strong> Used the AI Assistant to gather information from project files (ProfileCard.kt, ProfileScreen.kt, OrderPuzzle.kt) to construct the lab write-up. The assistant helped summarize findings from Task 4 observations and provided concise explanations for the theoretical questions based on the implementation details found in the code.</p>
+        <p><strong>Verification:</strong> All code snippets and project details were verified against the actual source files in the Lab-3 folder. The write-up structure follows the official lab requirements provided.</p>
+    </div>
+
+</body>
+</html>
