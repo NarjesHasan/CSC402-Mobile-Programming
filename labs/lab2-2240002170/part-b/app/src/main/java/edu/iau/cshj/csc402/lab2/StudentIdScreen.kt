@@ -108,7 +108,7 @@ fun StudentIdScreen(modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.height(20.dp))
 
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        InfoChip(text = "Level 4", color = Navy)
+                        InfoChip(text = "Level 7", color = Navy)
                         InfoChip(text = "CSHJ", color = AndroidGreen)
                     }
 
