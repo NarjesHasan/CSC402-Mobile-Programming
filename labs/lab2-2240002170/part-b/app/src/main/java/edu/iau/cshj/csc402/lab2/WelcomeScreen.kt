@@ -95,7 +95,7 @@ fun WelcomeScreen(modifier: Modifier = Modifier) {
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "JU",
+                            text = "NA",
                             color = AndroidGreen,
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Bold
@@ -105,7 +105,7 @@ fun WelcomeScreen(modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "Hello, Jubail!",
+                        text = "Hello, Narjes!",
                         fontSize = 26.sp,
                         fontWeight = FontWeight.Bold,
                         color = Navy
