@@ -1,5 +1,7 @@
 package edu.iau.cshj.csc402.lab2
 
+// Task 6 — Welcome Screen
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
