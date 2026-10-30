@@ -18,15 +18,15 @@ fun StudyPlannerApp() {
     ) {
         composable<PlannerHome> {
             PlannerHomeRoute(
-                onTaskClick = { title ->
-                    navController.navigate(TaskDetail(title = title))
+                onTaskClick = { taskId ->
+                    navController.navigate(TaskDetail(taskId = taskId))
                 }
             )
         }
         composable<TaskDetail> { backStackEntry ->
             val detail: TaskDetail = backStackEntry.toRoute()
             TaskDetailRoute(
-                title = detail.title,
+                taskId = detail.taskId,
                 onBackClick = { navController.popBackStack() }
             )
         }

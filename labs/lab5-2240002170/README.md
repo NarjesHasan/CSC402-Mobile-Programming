@@ -85,7 +85,7 @@ labs/lab5-2240002170/
 ### Summary of Part 2 Extensions
 1. **Typed Navigation Routes (`navigation/Routes.kt`):**
    - `@Serializable object PlannerHome`
-   - `@Serializable data class TaskDetail(val title: String)`
+   - `@Serializable data class TaskDetail(val taskId: Int)`
 2. **Stateless `TaskDetailScreen` & `TaskDetailRoute`:**
    - Displays task title, Share button, and Back button.
    - Accepts `TaskDetailUiState(val title: String)`.
@@ -95,7 +95,7 @@ labs/lab5-2240002170/
    - Wrapped in `Intent.createChooser(sendIntent, "Share task via")`.
 4. **App Container (`StudyPlannerApp`):**
    - Contains `NavHost(navController, startDestination = PlannerHome)`.
-   - Handles navigation transitions with `navigate(TaskDetail(title))` and `popBackStack()`.
+   - Handles navigation transitions with `navigate(TaskDetail(taskId))` and `popBackStack()`.
    - Screen composables remain 100% free of `NavController` references.
 
 ---
@@ -123,3 +123,5 @@ To capture evidence images in Android Studio / Emulator:
 3. **Android Share Sheet:** On task detail screen, tap "Share" -> Capture system share dialog. Save as `evidence/share_sheet.png`.
 4. **TaskDetailScreen Preview #1:** In `TaskDetailScreen.kt`, render preview `TaskDetailPreview1`. Save as `evidence/task_detail_preview1.png`.
 5. **TaskDetailScreen Preview #2:** In `TaskDetailScreen.kt`, render preview `TaskDetailPreview2`. Save as `evidence/task_detail_preview2.png`.
+
+

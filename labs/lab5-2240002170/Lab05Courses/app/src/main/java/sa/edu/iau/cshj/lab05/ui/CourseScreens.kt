@@ -123,7 +123,10 @@ fun CourseDetailRoute(code: String, onBackClick: () -> Unit) {
                 putExtra(Intent.EXTRA_TEXT, "I'm taking $code this semester!")
                 type = "text/plain"
             }
-            context.startActivity(Intent.createChooser(send, "Share via"))
+            val chooser = Intent.createChooser(send, "Share via").apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(chooser)
         },
         onBackClick = onBackClick
     )

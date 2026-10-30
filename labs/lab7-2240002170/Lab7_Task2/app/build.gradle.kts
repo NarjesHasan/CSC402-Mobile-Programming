@@ -5,14 +5,13 @@ plugins {
 
 android {
     namespace = "edu.iau.cshj.csc402.lab7"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 35
+    buildToolsVersion = "36.0.0"
 
     defaultConfig {
         applicationId = "edu.iau.cshj.csc402.lab7"
-        minSdk = 24
-        targetSdk = 37
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -21,9 +20,7 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
         }
     }
     compileOptions {

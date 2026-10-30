@@ -14,10 +14,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import sa.edu.iau.cshj.studyplanner.data.StudyTask
 import sa.edu.iau.cshj.studyplanner.ui.theme.StudyPlannerTheme
 
 data class TaskDetailUiState(
-    val title: String = ""
+    val task: StudyTask? = null
+)
+
+val sampleTasksMap = mapOf(
+    1 to StudyTask(1, "Lab 4 Attendance Check & State List", "CSC 402", isDone = true),
+    2 to StudyTask(2, "Lab 5 Navigation Compose & Intents", "CSC 402", isDone = true),
+    3 to StudyTask(3, "Lab 6 Rotation State Hoisting Review", "CSC 402", isDone = false),
+    4 to StudyTask(4, "Lab 7 LazyColumn & Interop Implementation", "CSC 402", isDone = false),
+    5 to StudyTask(5, "Term Project Proposal Finalization", "CSC 402", isDone = false)
 )
 
 @Composable
@@ -27,6 +36,7 @@ fun TaskDetailScreen(
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val task = uiState.task
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -34,9 +44,18 @@ fun TaskDetailScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(text = "Task Detail", style = MaterialTheme.typography.titleMedium)
-        Text(text = uiState.title, style = MaterialTheme.typography.headlineMedium)
-        Button(onClick = onShareClick) {
-            Text("Share")
+        if (task != null) {
+            Text(text = task.title, style = MaterialTheme.typography.headlineMedium)
+            Text(text = "Course: ${task.course}", style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = "Status: ${if (task.isDone) "Completed" else "In Progress"}",
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Button(onClick = onShareClick) {
+                Text("Share Task")
+            }
+        } else {
+            Text(text = "Task not found", style = MaterialTheme.typography.headlineSmall)
         }
         OutlinedButton(onClick = onBackClick) {
             Text("Back")
@@ -49,7 +68,9 @@ fun TaskDetailScreen(
 private fun TaskDetailPreview1() {
     StudyPlannerTheme {
         TaskDetailScreen(
-            uiState = TaskDetailUiState("CSC 402 - Mobile Application Programming"),
+            uiState = TaskDetailUiState(
+                task = StudyTask(4, "Lab 7 LazyColumn & Interop Implementation", "CSC 402", isDone = false)
+            ),
             onShareClick = {},
             onBackClick = {}
         )
@@ -61,7 +82,9 @@ private fun TaskDetailPreview1() {
 private fun TaskDetailPreview2() {
     StudyPlannerTheme {
         TaskDetailScreen(
-            uiState = TaskDetailUiState("Lab 5 - Navigation & Intents"),
+            uiState = TaskDetailUiState(
+                task = StudyTask(2, "Lab 5 Navigation Compose & Intents", "CSC 402", isDone = true)
+            ),
             onShareClick = {},
             onBackClick = {}
         )
@@ -70,19 +93,22 @@ private fun TaskDetailPreview2() {
 
 @Composable
 fun TaskDetailRoute(
-    title: String,
+    taskId: Int,
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+    val task = sampleTasksMap[taskId]
     TaskDetailScreen(
-        uiState = TaskDetailUiState(title = title),
+        uiState = TaskDetailUiState(task = task),
         onShareClick = {
-            val sendIntent = Intent(Intent.ACTION_SEND).apply {
-                putExtra(Intent.EXTRA_TEXT, "Today I'm studying: $title")
-                type = "text/plain"
+            if (task != null) {
+                val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                    putExtra(Intent.EXTRA_TEXT, "Today I'm studying: ${task.title} (${task.course})")
+                    type = "text/plain"
+                }
+                context.startActivity(Intent.createChooser(sendIntent, "Share task via"))
             }
-            context.startActivity(Intent.createChooser(sendIntent, "Share task via"))
         },
         onBackClick = onBackClick,
         modifier = modifier
