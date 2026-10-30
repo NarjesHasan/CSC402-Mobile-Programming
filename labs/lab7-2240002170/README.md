@@ -5,7 +5,7 @@
 - `Lab7_Task2/`: Android `RatingBar` embedded with `AndroidView`, rating state synchronization, reset, and `Lab07` Logcat messages.
 - `Lab7_Task3/`: university site displayed with `WebView` inside `AndroidView`; INTERNET permission is declared.
 - `Lab07CourseFeedback/`: integrated home screen linking the course rating and campus news routes.
-- `StudyPlanner/`: task list with `LazyColumn`, checkboxes, typed detail navigation, and system share chooser. The canonical Lab 4/5 StudyPlanner remains in `labs/lab4-2240002170/StudyPlanner/`.
+- `StudyPlanner/`: Semester App Part 4 snapshot with task list, `LazyColumn`, checkboxes, typed detail navigation, and system share chooser. Earlier assignment stages are kept in the Lab 4 and Lab 5 folders.
 
 ## Run
 
@@ -17,6 +17,8 @@ Each project builds with `:app:assembleDebug`. The integrated app's rating scree
 
 The integrated app keeps rating state in `rememberSaveable` and emits `factory` and `update` messages under the `Lab07` Logcat tag.
 
+The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. Preview captures should be taken from Android Studio's Preview pane; those images are not yet included. The exercise sheet also requests a photo of the student's paper sketch for the task row; that photo is not part of the repository.
+
 ## AI assistance disclosure
 
-Codex assisted with project review, a WebView layout fix, builds, and emulator smoke checks on 30 October 2026. The source behavior and UI were reviewed after the changes.
+Codex assistance is recorded in [`AI_USE_LOG.md`](AI_USE_LOG.md), including the WebView fix, builds, and emulator smoke checks on 30 October 2026.

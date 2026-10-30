@@ -1,6 +1,7 @@
 package sa.edu.iau.cshj.studyplanner.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -9,12 +10,13 @@ import sa.edu.iau.cshj.studyplanner.ui.PlannerHomeRoute
 import sa.edu.iau.cshj.studyplanner.ui.TaskDetailRoute
 
 @Composable
-fun StudyPlannerApp() {
+fun StudyPlannerApp(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = PlannerHome
+        startDestination = PlannerHome,
+        modifier = modifier
     ) {
         composable<PlannerHome> {
             PlannerHomeRoute(

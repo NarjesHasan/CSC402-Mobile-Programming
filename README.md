@@ -20,10 +20,10 @@
 
 ## Semester Application: StudyPlanner
 
-The `StudyPlanner` application is a semester-long project progressing across lab sessions:
-- **Canonical Location:** [`labs/lab4-2240002170/StudyPlanner/`](labs/lab4-2240002170/StudyPlanner/)
-- **Part 1 (Lab 4):** Immutable UI state (`PlannerUiState`), stateless home screen (`PlannerHomeScreen`), route state hoisting with `.copy()`, previews.
-- **Part 2 (Lab 5):** Navigation Compose with `@Serializable` typed routes (`PlannerHome`, `TaskDetail`), stateless task detail screen (`TaskDetailScreen`), implicit `ACTION_SEND` Intent sharing with chooser.
+The repository keeps a runnable snapshot for each supplied assignment stage:
+- **Part 1 (Lab 4):** [`labs/lab4-2240002170/StudyPlanner/`](labs/lab4-2240002170/StudyPlanner/) — immutable UI state, stateless home screen, previews, and state hoisting.
+- **Part 2 (Lab 5):** [`labs/lab5-2240002170/StudyPlanner/`](labs/lab5-2240002170/StudyPlanner/) — typed Navigation Compose routes, task details, and an `ACTION_SEND` chooser.
+- **Part 4 (Lab 7):** [`labs/lab7-2240002170/StudyPlanner/`](labs/lab7-2240002170/StudyPlanner/) — reusable task rows, `LazyColumn`, checkboxes, task-ID navigation, and sharing.
 
 
 ## Lab 7: AndroidView and LazyColumn

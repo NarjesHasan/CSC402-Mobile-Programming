@@ -22,10 +22,17 @@ labs/lab5-2240002170/
 │   │           ├── CourseScreens.kt
 │   │           └── theme/
 │   └── build.gradle.kts
+├── StudyPlanner/          # Semester App Part 2 snapshot
+│   ├── app/src/main/java/sa/edu/iau/cshj/studyplanner/
+│   │   ├── navigation/    # PlannerHome / TaskDetail typed routes and NavHost
+│   │   └── ui/            # Stateless task list and detail screens
+│   └── build.gradle.kts
 └── README.md
 ```
 
-> **Note on StudyPlanner:** As required by the semester assignment architecture, `StudyPlanner` is maintained as a single, continuous codebase under `labs/lab4-2240002170/StudyPlanner/`. Part 2 additions (Navigation Compose, `TaskDetailScreen`, `ACTION_SEND` Intent sharing, typed routes) have been integrated into `labs/lab4-2240002170/StudyPlanner/`.
+The StudyPlanner directory here is the Part 2 snapshot built on the Lab 4 app. The next supplied snapshot, Part 4, is in `labs/lab7-2240002170/StudyPlanner/`.
+
+`CourseScreens.kt` started from the instructor-provided file. Its three stateless screens were retained; the route handlers and Navigation Compose wiring complete the TODOs from the exercise.
 
 ---
 
@@ -85,15 +92,15 @@ labs/lab5-2240002170/
 ### Summary of Part 2 Extensions
 1. **Typed Navigation Routes (`navigation/Routes.kt`):**
    - `@Serializable object PlannerHome`
-   - `@Serializable data class TaskDetail(val taskId: Int)`
-2. **Stateless `TaskDetailScreen` & `TaskDetailRoute`:**
-   - Displays task title, Share button, and Back button.
-   - Accepts `TaskDetailUiState(val title: String)`.
-3. **Implicit Share Intent (`ACTION_SEND`):**
+   - `@Serializable data class TaskDetail(val title: String)`
+2. **Home list:** `PlannerUiState` carries at least three sample task titles; `PlannerHomeScreen` reports taps through `onTaskClick(title)`.
+3. **Stateless `TaskDetailScreen` & `TaskDetailRoute`:**
+   - Displays the task title, Share button, and Back button; includes two title previews.
+4. **Implicit Share Intent (`ACTION_SEND`):**
    - Built inside `TaskDetailRoute` using `Intent(Intent.ACTION_SEND)`.
    - Sets `EXTRA_TEXT` ("Today I'm studying: $title") and `type = "text/plain"`.
-   - Wrapped in `Intent.createChooser(sendIntent, "Share task via")`.
-4. **App Container (`StudyPlannerApp`):**
+   - Wrapped in `Intent.createChooser(send, "Share via")`.
+5. **App Container (`StudyPlannerApp`):**
    - Contains `NavHost(navController, startDestination = PlannerHome)`.
    - Handles navigation transitions with `navigate(TaskDetail(taskId))` and `popBackStack()`.
    - Screen composables remain 100% free of `NavController` references.
@@ -106,10 +113,11 @@ labs/lab5-2240002170/
 +------------------------------------+       +------------------------------------+
 |            PlannerHome             | ----> |            TaskDetail              |
 |                                    | (tap) |                                    |
-| Greeting: "Hello, Student!"        |       | Title: "CSC 402 - Mobile App..."   |
-| Progress: "0 of 3 done"            |       |                                    |
-| Tasks:                             | <---- | [ Share ]   [ Back ]               |
-| - CSC 402 Lecture slides review    | (back)|                                    |
+| Greeting: "Hello, Narjes!"         |       | Title: "Lab 4 report"              |
+| Your study tasks:                  |       |                                    |
+| - Lab 4 report                     | <---- | [ Share ]   [ Back ]               |
+| - Review Lecture 5                 | (back)|                                    |
+| - Prepare CSC 402 notes            |       |                                    |
 +------------------------------------+       +------------------------------------+
 ```
 
@@ -118,10 +126,10 @@ labs/lab5-2240002170/
 ## Section 4: Screenshot Capture Guide
 
 To capture evidence images in Android Studio / Emulator:
-1. **StudyPlanner Home Screen (showing >= 3 tasks):** Run `StudyPlanner` -> Capture home screen. Save as `evidence/studyplanner_home.png`.
-2. **Task Detail Screen (selected task title):** Tap a task (e.g. "CSC 402 Lecture slides review") -> Capture detail screen. Save as `evidence/task_detail.png`.
-3. **Android Share Sheet:** On task detail screen, tap "Share" -> Capture system share dialog. Save as `evidence/share_sheet.png`.
-4. **TaskDetailScreen Preview #1:** In `TaskDetailScreen.kt`, render preview `TaskDetailPreview1`. Save as `evidence/task_detail_preview1.png`.
-5. **TaskDetailScreen Preview #2:** In `TaskDetailScreen.kt`, render preview `TaskDetailPreview2`. Save as `evidence/task_detail_preview2.png`.
+1. The running Lab05Courses home, list, detail, and share sheet captures are in `submission-evidence/lab05/` at repository root.
+2. The StudyPlanner Part 2 home, detail, and share chooser captures are `lab05_studyplanner_part2_home.png`, `lab05_studyplanner_part2_detail.png`, and `lab05_studyplanner_part2_share_sheet.png` in the same folder.
+3. Render both `TaskDetailScreen` previews in Android Studio's Split/Design view; preview captures are not yet included.
+
+The text diagram is a digital reference sketch. The exercise sheet separately requests a photo of the student's paper sketch and navigation map; that photo is not included in the repository.
 
 
