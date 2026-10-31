@@ -1,0 +1,10 @@
+CSC402 Lab 7 Task 2 — RatingBar AndroidView Logcat evidence
+Source: Android emulator Logcat, filter/tag Lab07, 30 October 2026.
+
+10-30 13:34:03.320 D Lab07: factory
+10-30 13:34:03.415 D Lab07: update 0.0
+10-30 13:34:07.302 D Lab07: update 1.5
+10-30 13:34:13.412 D Lab07: update 0.0
+10-30 13:34:16.752 D Lab07: update 4.0
+
+Observed: factory ran once in this session. update logged the initial value, user-selected values, and reset to zero.

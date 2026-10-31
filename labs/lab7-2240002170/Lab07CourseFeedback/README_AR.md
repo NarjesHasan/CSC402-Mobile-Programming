@@ -26,4 +26,4 @@
 - زر **Back** يرجعك للتقييم. زر **Course Rating** يرجع للتقييم أيضًا.
 - `webViewClient = WebViewClient()` يبقي الروابط داخل WebView. إذن INTERNET موجود في AndroidManifest.xml.
 
-ملاحظة صريحة: تم تجهيز ملفات المصدر وإعدادات المشروع، لكن لا يمكن التحقق من Build على جهازك من هنا. إذا ظهر خطأ بعد اختيار Local installation، أرسل صورة رسالة الخطأ كاملة.
+تم بناء المشروع وتشغيله على محاكي Android Studio. توجد لقطات تشغيل التقييم والأخبار والتنقل في `submission-evidence/lab07/` على مستوى المستودع. سجلات `Lab07` الملتقطة من المحاكي محفوظة في `submission-evidence/lab07/lab07_rating_logcat.txt`.

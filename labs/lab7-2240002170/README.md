@@ -17,7 +17,16 @@ Each project builds with `:app:assembleDebug`. The integrated app's rating scree
 
 The integrated app keeps rating state in `rememberSaveable` and emits `factory` and `update` messages under the `Lab07` Logcat tag.
 
-The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. The three task list previews rendered in Android Studio are captured at `submission-evidence/lab07/lab07_studyplanner_part4_compose_previews.jpg`. The exercise sheet also requests a photo of the student's paper sketch for the task row; that photo is not part of the repository.
+The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. The three task list previews rendered in Android Studio are captured at `submission-evidence/lab07/lab07_studyplanner_part4_compose_previews.jpg`. A captured `Lab07` Logcat sample is in `submission-evidence/lab07/lab07_rating_logcat.txt`.
+
+### Guided task checks
+
+- **Task 1:** `setContentView` inflates the old XML into Views; `label.text = ...` is imperative because it directly mutates a View. The Fragment transaction's `addToBackStack` enabled returning to the prior screen; Compose replaces this with Navigation's back stack.
+- **Task 2:** `StarRating` constructs its `RatingBar` once in `factory`, reflects Compose state into it in `update`, and only reports touch-originated changes (`fromUser`). The saved Logcat sample shows one `factory` line and subsequent `update` values, including `1.5`, `0.0`, and `4.0`. Reset returns both stars and text to zero. The deliberate removal of `update` would leave the View's stars out of sync with Route state. `rememberSaveable` is the implementation used for rotation restoration.
+- **Task 3:** `CampusWebPage` keeps link navigation inside the WebView with `WebViewClient` and calls `loadUrl` once during View creation. Without the client, links can leave the app for a browser. Without INTERNET permission, the page cannot load from the network. Keeping `loadUrl` in `factory` avoids reloading the page on unrelated Compose state updates.
+- **Task 4:** The integrated app has serializable routes and a single `CourseApp` NavHost. The back-stack sequence is `Home`; `Home → CourseRating`; `Home`; `Home → CampusNews`; `Home`. The manifest has one Activity, the UI uses Route/Screen separation, and only the NavHost accesses `navController`.
+
+The Logcat excerpt is from the emulator session recorded on 30 October 2026. The source keeps the working implementations; deliberate broken variants are described here but are not left in the submitted code.
 
 ## AI assistance disclosure
 
