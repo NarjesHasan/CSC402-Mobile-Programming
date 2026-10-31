@@ -7,14 +7,15 @@ android {
     namespace = "edu.iau.cshj.csc402.lab7"
     sourceSets {
         getByName("main") {
-            java.srcDir("../../Task-2")
+            manifest.srcFile("../../AndroidManifest.xml")
+            java.srcDirs("src/main/java", "../..")
         }
     }
     compileSdk = 35
     buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "edu.iau.cshj.csc402.lab7"
+        applicationId = "edu.iau.cshj.csc402.lab7.task3"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

@@ -4,8 +4,8 @@ Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
 
 ## Projects
 
-- `Lab7_Task2/`: Android `RatingBar` embedded with `AndroidView`, rating state synchronization, reset, and `Lab07` Logcat messages.
-- `Lab7_Task3/`: university site displayed with `WebView` inside `AndroidView`; INTERNET permission is declared.
+- `Task-2/AndroidProject/`: Android `RatingBar` embedded with `AndroidView`, rating state synchronization, reset, and `Lab07` Logcat messages.
+- `Task-3/AndroidProject/`: university site displayed with `WebView` inside `AndroidView`; INTERNET permission is declared.
 - `Lab07CourseFeedback/`: integrated home screen linking the course rating and campus news routes.
 - `StudyPlanner/`: Semester App Part 4 snapshot with task list, `LazyColumn`, checkboxes, typed detail navigation, and system share chooser. Earlier assignment stages are kept in the Lab 4 and Lab 5 folders.
 
@@ -19,7 +19,7 @@ Each project builds with `:app:assembleDebug`. The integrated app's rating scree
 
 The integrated app keeps rating state in `rememberSaveable` and emits `factory` and `update` messages under the `Lab07` Logcat tag.
 
-The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. The three task list previews rendered in Android Studio are captured at `submission-evidence/lab07/lab07_studyplanner_part4_compose_previews.jpg`. A captured `Lab07` Logcat sample is in `submission-evidence/lab07/lab07_rating_logcat.txt`.
+The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `screenshots/` in this lab folder. The three task list previews rendered in Android Studio are captured at `screenshots/lab07_studyplanner_part4_compose_previews.jpg`. A captured `Lab07` Logcat sample is in `screenshots/lab07_rating_logcat.txt`.
 
 ### Guided task checks
 
