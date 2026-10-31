@@ -33,7 +33,7 @@ The implementation and guided-task observations are in `Lab04Attendance/app/src/
 +----------------------------------+
 ```
 
-The text diagram in this README is a digital reference sketch. The assignment also requests a photo of the student's own paper sketch and state list; that photo is not part of this repository. Android Studio Preview screenshots are also still needed for submission.
+The text diagram in this README is a digital reference sketch. Android Studio Preview captures are included at `submission-evidence/lab04/lab04_studyplanner_part1_compose_previews.jpg`. The assignment also requests a photo of the student's own paper sketch and state list; that photo is not part of this repository.
 
 ## Build
 

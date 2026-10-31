@@ -128,7 +128,7 @@ The StudyPlanner directory here is the Part 2 snapshot built on the Lab 4 app. T
 To capture evidence images in Android Studio / Emulator:
 1. The running Lab05Courses home, list, detail, and share sheet captures are in `submission-evidence/lab05/` at repository root.
 2. The StudyPlanner Part 2 home, detail, and share chooser captures are `lab05_studyplanner_part2_home.png`, `lab05_studyplanner_part2_detail.png`, and `lab05_studyplanner_part2_share_sheet.png` in the same folder.
-3. Render both `TaskDetailScreen` previews in Android Studio's Split/Design view; preview captures are not yet included.
+3. Both `TaskDetailScreen` previews rendered in Android Studio and are captured at `submission-evidence/lab05/lab05_studyplanner_part2_compose_previews.jpg`.
 
 The text diagram is a digital reference sketch. The exercise sheet separately requests a photo of the student's paper sketch and navigation map; that photo is not included in the repository.
 

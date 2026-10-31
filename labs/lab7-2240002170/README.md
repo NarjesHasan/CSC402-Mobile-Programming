@@ -17,7 +17,7 @@ Each project builds with `:app:assembleDebug`. The integrated app's rating scree
 
 The integrated app keeps rating state in `rememberSaveable` and emits `factory` and `update` messages under the `Lab07` Logcat tag.
 
-The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. Preview captures should be taken from Android Studio's Preview pane; those images are not yet included. The exercise sheet also requests a photo of the student's paper sketch for the task row; that photo is not part of the repository.
+The code includes three Compose previews for the Part 4 task list, two detail previews, and one Activity. Emulator captures for the integrated Lab 7 app and Part 4 StudyPlanner list/detail are in `submission-evidence/lab07/` at the repository root. The three task list previews rendered in Android Studio are captured at `submission-evidence/lab07/lab07_studyplanner_part4_compose_previews.jpg`. The exercise sheet also requests a photo of the student's paper sketch for the task row; that photo is not part of the repository.
 
 ## AI assistance disclosure
 
