@@ -2,6 +2,8 @@
 
 **Student:** Narjes Hasan · **ID:** 2240002170
 
+Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
+
 ## Projects
 
 - `Lab04Attendance/` — guided Activity, immutable UI state, stateless screen, previews, and state-owning route.

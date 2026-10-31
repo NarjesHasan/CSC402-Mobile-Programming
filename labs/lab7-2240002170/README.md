@@ -1,5 +1,7 @@
 # CSC 402 · Lab 7: AndroidView and LazyColumn
 
+Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
+
 ## Projects
 
 - `Lab7_Task2/`: Android `RatingBar` embedded with `AndroidView`, rating state synchronization, reset, and `Lab07` Logcat messages.

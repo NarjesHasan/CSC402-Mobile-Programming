@@ -4,6 +4,8 @@
 **Student ID:** 2240002170  
 **Repository Subfolder:** `labs/lab5-2240002170`
 
+Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
+
 ---
 
 ## Directory Structure
