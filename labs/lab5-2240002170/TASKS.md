@@ -1,22 +1,14 @@
-# Lab 5 — task-by-task code and evidence
+# Lab 5
 
-Guided tasks have separate folders with the code introduced at each step. The runnable cumulative guided project remains in Lab05Courses. The semester assignment is in StudyPlanner.
+## Guided tasks
 
-## Task 1 — Ask another app
-Code: CourseScreens.kt in Task-1 (HomeScreen and implicit website/dial intents with fallback Toast).
-Runnable project: ../Lab05Courses/.
+- **Task 1:** `Task-1/CourseScreens.kt`
+- **Task 2:** `Task-2/Routes.kt`, `Task-2/Gradle-additions.txt`
+- **Task 3:** `Task-3/CourseList.kt`, `Task-3/CourseApp.kt`, `Task-3/MainActivity.kt` (uses Tasks 1–2)
+- **Task 4:** `Task-4/CourseDetail.kt` (adds share behavior to the detail screen)
 
-## Task 2 — Plan routes
-Code: Routes.kt and Gradle-additions.txt in Task-2.
-Runnable project: ../Lab05Courses/.
+Run the guided app from `Lab05Courses/`.
 
-## Task 3 — Connect the screens
-Code: CourseApp.kt, Routes.kt, and CourseScreens.kt in Task-3 (cumulative NavHost wiring).
-Runnable project: ../Lab05Courses/.
+## Part 2 — Semester App
 
-## Task 4 — Share and trace the back stack
-Code: CourseDetail.kt and CourseScreens.kt in Task-4 (share chooser and final guided UI).
-Runnable project: ../Lab05Courses/.
-
-## Semester App Part 2
-Complete Android project: ../StudyPlanner/.
+Complete project: `StudyPlanner/`. Home, detail, share, and preview screenshots: `submission-evidence/lab05/`.

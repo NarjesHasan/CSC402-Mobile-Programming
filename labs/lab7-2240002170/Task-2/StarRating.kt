@@ -1,4 +1,4 @@
-package edu.iau.cshj.csc402.lab7.ui.components
+package sa.edu.iau.cshj.lab07.ui.components
 
 import android.util.Log
 import android.widget.RatingBar
@@ -19,9 +19,7 @@ fun StarRating(
                 numStars = 5
                 stepSize = 0.5f
                 setOnRatingBarChangeListener { _, value, fromUser ->
-                    if (fromUser) {
-                        onStarsChange(value)
-                    }
+                    if (fromUser) onStarsChange(value)
                 }
             }
         },

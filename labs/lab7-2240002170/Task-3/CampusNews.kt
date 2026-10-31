@@ -1,4 +1,4 @@
-package edu.iau.cshj.csc402.lab7.ui
+package sa.edu.iau.cshj.lab07.ui
 
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -25,7 +25,11 @@ fun CampusWebPage(url: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun CampusNewsScreen(url: String, onBackClick: () -> Unit, modifier: Modifier = Modifier) {
+fun CampusNewsScreen(
+    url: String,
+    onBackClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(modifier = modifier.fillMaxSize()) {
         Button(onClick = onBackClick) { Text("Back") }
         CampusWebPage(url = url, modifier = Modifier.weight(1f).fillMaxWidth())
@@ -33,7 +37,7 @@ fun CampusNewsScreen(url: String, onBackClick: () -> Unit, modifier: Modifier = 
 }
 
 @Composable
-fun CampusNewsRoute(onBackClick: () -> Unit = {}, modifier: Modifier = Modifier) {
+fun CampusNewsRoute(onBackClick: () -> Unit, modifier: Modifier = Modifier) {
     CampusNewsScreen(
         url = "https://www.iau.edu.sa",
         onBackClick = onBackClick,

@@ -5,6 +5,18 @@ plugins {
 
 android {
     namespace = "sa.edu.iau.cshj.lab04"
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("../../Task-1/AndroidManifest.xml")
+            java.srcDirs(
+                "src/main/java",
+                "../../Task-1",
+                "../../Task-2",
+                "../../Task-3",
+                "../../Task-4"
+            )
+        }
+    }
     compileSdk {
         version = release(37)
     }

@@ -6,6 +6,17 @@ plugins {
 
 android {
     namespace = "sa.edu.iau.cshj.lab05"
+    sourceSets {
+        getByName("main") {
+            java.srcDirs(
+                "src/main/java",
+                "../../Task-1",
+                "../../Task-2",
+                "../../Task-3",
+                "../../Task-4"
+            )
+        }
+    }
     compileSdk {
         version = release(37)
     }

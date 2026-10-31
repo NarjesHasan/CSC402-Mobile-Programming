@@ -12,18 +12,8 @@ Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
 
 ```text
 labs/lab5-2240002170/
-├── Lab05Courses/          # Guided Tasks Application
-│   ├── app/src/main/
-│   │   ├── AndroidManifest.xml
-│   │   └── java/sa/edu/iau/cshj/lab05/
-│   │       ├── MainActivity.kt
-│   │       ├── navigation/
-│   │       │   ├── CourseApp.kt
-│   │       │   └── Routes.kt
-│   │       └── ui/
-│   │           ├── CourseScreens.kt
-│   │           └── theme/
-│   └── build.gradle.kts
+├── Task-1/ … Task-4/      # One source addition per guided task
+├── Lab05Courses/          # Runnable app, compiles the Task folders
 ├── StudyPlanner/          # Semester App Part 2 snapshot
 │   ├── app/src/main/java/sa/edu/iau/cshj/studyplanner/
 │   │   ├── navigation/    # PlannerHome / TaskDetail typed routes and NavHost
@@ -34,7 +24,7 @@ labs/lab5-2240002170/
 
 The StudyPlanner directory here is the Part 2 snapshot built on the Lab 4 app. The next supplied snapshot, Part 4, is in `labs/lab7-2240002170/StudyPlanner/`.
 
-`CourseScreens.kt` started from the instructor-provided file. Its three stateless screens were retained; the route handlers and Navigation Compose wiring complete the TODOs from the exercise.
+The instructor-provided screens are divided across Task 1, Task 3, and Task 4. Their source appears once in the Task folders; Gradle points the runnable Lab05Courses app at those files.
 
 ---
 
@@ -132,6 +122,5 @@ To capture evidence images in Android Studio / Emulator:
 2. The StudyPlanner Part 2 home, detail, and share chooser captures are `lab05_studyplanner_part2_home.png`, `lab05_studyplanner_part2_detail.png`, and `lab05_studyplanner_part2_share_sheet.png` in the same folder.
 3. Both `TaskDetailScreen` previews rendered in Android Studio and are captured at `submission-evidence/lab05/lab05_studyplanner_part2_compose_previews.jpg`.
 
-The text diagram is a digital reference sketch. The exercise sheet separately requests a photo of the student's paper sketch and navigation map; that photo is not included in the repository.
 
 

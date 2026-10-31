@@ -5,6 +5,11 @@ plugins {
 
 android {
     namespace = "edu.iau.cshj.csc402.lab7"
+    sourceSets {
+        getByName("main") {
+            java.srcDir("../../Task-2")
+        }
+    }
     compileSdk = 35
     buildToolsVersion = "36.0.0"
 

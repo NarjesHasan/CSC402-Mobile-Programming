@@ -17,7 +17,7 @@ Task-by-task implementation and evidence map: [`TASKS.md`](TASKS.md).
 - Two previews show the before and after states.
 - `AttendanceRoute` owns the state and replaces it with `copy()` after the tap.
 
-The implementation and guided-task observations are in `Lab04Attendance/app/src/main/java/sa/edu/iau/cshj/lab04/ui/AttendanceScreen.kt`. Attendance emulator captures and Part 1 running-app captures are under `submission-evidence/lab04/` at the repository root (`lab04_studyplanner_part1_running.png`, `lab04_studyplanner_part1_after_tap.png`).
+Task code lives once in `Task-1/` through `Task-4/`; `Lab04Attendance/` compiles those files as the runnable guided app. Attendance emulator captures and Part 1 running-app captures are under `submission-evidence/lab04/` at the repository root (`lab04_studyplanner_part1_running.png`, `lab04_studyplanner_part1_after_tap.png`).
 
 ### Guided task answers and checks
 

@@ -1,21 +1,14 @@
-# Lab 7 — task-by-task code and evidence
+# Lab 7
 
-Tasks 2 and 3 have standalone runnable projects. Task 4 has an integrated source snapshot. The complete runnable integrated app remains in Lab07CourseFeedback; Semester App Part 4 remains in StudyPlanner.
+## Guided tasks
 
-## Task 1 — Read the old code
-Written answers: Task1_Answers.md in Task-1.
+- **Task 1:** `Task-1/Task1_Answers.md`
+- **Task 2:** `Task-2/StarRating.kt`, `Task-2/CourseRating.kt`
+- **Task 3:** `Task-3/CampusNews.kt`, `Task-3/AndroidManifest.xml`; its single-purpose Activity is in `Lab7_Task3/app/src/main/java/edu/iau/cshj/csc402/lab7/MainActivity.kt`
+- **Task 4:** `Task-4/CourseApp.kt`, `Task-4/MainActivity.kt` (integrates Tasks 2–3)
 
-## Task 2 — Wrap the RatingBar
-Code: StarRating.kt and CourseRating.kt in Task-2.
-Runnable project: ../Lab7_Task2/.
+Run the guided projects from `Lab7_Task2/`, `Lab7_Task3/`, or the integrated `Lab07CourseFeedback/`.
 
-## Task 3 — Show the WebView
-Code: CampusNews.kt, MainActivity.kt, and AndroidManifest.xml in Task-3.
-Runnable project: ../Lab7_Task3/.
+## Part 4 — Semester App
 
-## Task 4 — One Activity and one NavHost
-Code: CourseApp.kt, MainActivity.kt, and the supporting ui files in Task-4.
-Runnable integrated project: ../Lab07CourseFeedback/.
-
-## Semester App Part 4
-Complete Android project: ../StudyPlanner/.
+Complete project: `StudyPlanner/`. Previews, running screens, and Logcat evidence: `submission-evidence/lab07/`.

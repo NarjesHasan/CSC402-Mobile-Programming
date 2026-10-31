@@ -1,20 +1,14 @@
-# Lab 4 — task-by-task code and evidence
+# Lab 4
 
-Guided coding tasks have separate folders. These are source snapshots/snippets like Lab 3's Task folders; the complete runnable guided project remains in Lab04Attendance. The semester assignment is in StudyPlanner.
+## Guided tasks
 
-## Task 1 — Find the way in
-Code: AndroidManifest.xml and MainActivity.kt in this folder.
-Runnable project: ../Lab04Attendance/.
+- **Task 1:** `Task-1/AndroidManifest.xml`, `Task-1/MainActivity.kt`
+- **Task 2:** `Task-2/AttendanceUiState.kt`
+- **Task 3:** `Task-3/AttendanceScreen.kt` (uses the state from Task 2)
+- **Task 4:** `Task-4/AttendanceRoute.kt` (uses Tasks 2–3; launcher Activity is in Task 1)
 
-## Task 2 — Name the state
-Code: AttendanceUiState.kt in this folder.
+Run the guided app from `Lab04Attendance/`.
 
-## Task 3 — Stateless screen and previews
-Code: AttendanceScreen.kt in this folder (state model, stateless UI, two previews; no Route yet).
+## Part 1 — Semester App
 
-## Task 4 — State-owning Route
-Code: AttendanceScreen.kt and MainActivity.kt in this folder (complete working state update).
-Runnable project: ../Lab04Attendance/.
-
-## Semester App Part 1
-Complete Android project: ../StudyPlanner/.
+Complete project: `StudyPlanner/`. Preview and run screenshots: `submission-evidence/lab04/`.

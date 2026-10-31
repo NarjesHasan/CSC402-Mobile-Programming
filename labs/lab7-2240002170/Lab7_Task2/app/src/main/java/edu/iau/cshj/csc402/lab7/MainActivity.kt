@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import edu.iau.cshj.csc402.lab7.ui.CourseRatingRoute
+import sa.edu.iau.cshj.lab07.ui.CourseRatingRoute
 import edu.iau.cshj.csc402.lab7.ui.theme.Lab7_Task2Theme
 
 class MainActivity : ComponentActivity() {
