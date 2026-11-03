@@ -15,6 +15,7 @@
 | **Lab 4** | Activities, Composables, State & StudyPlanner Part 1 | [`labs/lab4-2240002170/`](labs/lab4-2240002170/) | Completed |
 | **Lab 5** | Intents, Navigation Compose & StudyPlanner Part 2 | [`labs/lab5-2240002170/`](labs/lab5-2240002170/) | Completed |
 | **Lab 7** | AndroidView Interoperability, RatingBar, WebView & LazyColumn | [labs/lab7-2240002170/](labs/lab7-2240002170/) | Completed |
+| **Lab 8** | ViewModel, StateFlow & Architecture (TodayScreen) | [`labs/lab8-2240002170/`](labs/lab8-2240002170/) | Completed |
 
 ---
 
@@ -29,4 +30,8 @@ The repository keeps a runnable snapshot for each supplied assignment stage:
 ## Lab 7: AndroidView and LazyColumn
 
 Lab 7 includes standalone Task 2 and Task 3 projects, an integrated Course Feedback app, and the StudyPlanner continuation with task lists and navigation. See [the Lab 7 README](labs/lab7-2240002170/README.md) for project details and run instructions.
+
+## Lab 8: Architecture, ViewModel & StateFlow
+
+Lab 8 demonstrates modern Android Architecture with Jetpack Compose using `ViewModel`, `StateFlow`, coroutines, and Unidirectional Data Flow (UDF) in `TodayScreen`. See [`labs/lab8-2240002170/`](labs/lab8-2240002170/) for project details.
 
